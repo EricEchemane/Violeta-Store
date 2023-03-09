@@ -1,8 +1,10 @@
 import Icon from '@/components/Icon';
+import getUserFrom, { User } from '@/contants/getUserFromSession';
 import { Container, Title, Text, Button, Stack, Paper } from '@mantine/core';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-export default function Home() {
+export default function Home({ user }: { user: User }) {
 	return (
 		<>
 			<Head>
@@ -20,7 +22,7 @@ export default function Home() {
 				>
 					<Stack align={'flex-start'}>
 						<Title> Hello, World!</Title>
-						<Text> From Eric Echemane</Text>
+						<Text> {JSON.stringify(user, null, 4)} </Text>
 						<Button leftIcon={<Icon name='save' />}>Say Hi</Button>
 					</Stack>
 				</Paper>
@@ -28,3 +30,9 @@ export default function Home() {
 		</>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const user = await getUserFrom(context);
+	if (!user) return { redirect: { destination: '/login', permanent: false } };
+	return { props: { user } };
+};
