@@ -23,6 +23,10 @@ export default class _Document extends Document {
 						href='https://fonts.googleapis.com/css2?family=Inter&display=swap'
 						rel='stylesheet'
 					/>
+					<link
+						href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional'
+						rel='stylesheet'
+					/>
 				</Head>
 				<body>
 					<Main />

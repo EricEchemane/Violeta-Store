@@ -1,4 +1,4 @@
-import { Container, Title, Text } from '@mantine/core';
+import { Container, Title, Text, Button } from '@mantine/core';
 import Head from 'next/head';
 
 export default function Home() {
@@ -15,6 +15,11 @@ export default function Home() {
 			<Container>
 				<Title> Hello, World!</Title>
 				<Text> From Eric Echemane</Text>
+				<Button
+					leftIcon={<span className='material-symbols-outlined'>save</span>}
+				>
+					Say Hi
+				</Button>
 			</Container>
 		</>
 	);
